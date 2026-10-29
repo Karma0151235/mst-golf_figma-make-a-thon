@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;1,700;1,800&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import 'tailwindcss';
+@import 'leaflet/dist/leaflet.css';
+
+@theme {
+  --font-display: 'Barlow Condensed', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+
+  --color-mst: #009639;
+  --color-mst-bright: #19c25a;
+  --color-mst-deep: #006a29;
+  --color-turf: #0b2e1b;
+  --color-ink: #0a0b0a;
+  --color-ink-2: #141614;
+  --color-ink-3: #1f221f;
+  --color-chalk: #f4f5f1;
+  --color-sand: #e9e1cf;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    background: #050605;
+    color: var(--color-chalk);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Golf-ball dimple texture used on balls and loaders */
+.dimples {
+  background-color: #fbfbf7;
+  background-image:
+    radial-gradient(circle at 30% 28%, rgba(255, 255, 255, 0.95) 0 18%, transparent 40%),
+    radial-gradient(rgba(0, 0, 0, 0.13) 22%, transparent 26%),
+    radial-gradient(rgba(0, 0, 0, 0.1) 22%, transparent 26%);
+  background-size:
+    100% 100%,
+    5px 5px,
+    5px 5px;
+  background-position:
+    0 0,
+    0 0,
+    2.5px 2.5px;
+  box-shadow:
+    inset -4px -5px 9px rgba(0, 0, 0, 0.25),
+    0 6px 14px rgba(0, 0, 0, 0.35);
+}
+
+.turf-stripes {
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.035) 0 28px,
+    transparent 28px 56px
+  );
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+/* Leaflet overrides */
+.leaflet-container {
+  background: #0d0f0d;
+  font-family: var(--font-sans);
+}
+.leaflet-control-attribution {
+  background: rgba(10, 11, 10, 0.7) !important;
+  color: #8a8f8a !important;
+  font-size: 9px !important;
+}
+.leaflet-control-attribution a {
+  color: #b9beb9 !important;
+}
+.mst-pin {
+  background: none;
+  border: none;
+}
